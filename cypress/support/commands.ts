@@ -36,8 +36,8 @@
 //     }
 //   }
 // }
-import '@badeball/cypress-cucumber-preprocessor';
-
+import 'cypress-file-upload';
+require('cypress-downloadfile/lib/downloadFileCommand')
 declare global {
     namespace Cypress {
         interface Chainable<Subject> {
