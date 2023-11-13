@@ -1,0 +1,21 @@
+{
+    "employee":
+       {
+        "firstName":"Raneen",
+        "lastName": "sameh",
+        "username":"raneunuse",
+        "password":"zaqzaq13",
+        "salary":"5000"
+       },
+       "manager":{
+        "firstName":"Mariam",
+        "lastName": "SAEED",
+        "username":"Mariam",
+        "password":"zaqzaq1233",
+        "salary":"3000"
+       }
+    
+    
+  
+   
+}
