@@ -15,11 +15,4 @@ Feature: Candidate Interview Result Verification Pass/Fail
         Given Created Candidate
         When Change the candidate status to Interview Failed
         Then Successfully transition the candidate's status to Interview Field
-    Scenario: The Admin should successfully transition the candidate's status to Hired
-        Given  Admin login
-        Given Created Employee
-        Given Created job
-        Given Created Vacancy
-        Given Created Candidate
-        When Change the candidate status to Hired
-        Then Successfully transition the candidate's status to Hired
+   

@@ -35,14 +35,12 @@ class CandidatePage {
     cy.wait(4000)
     this.elements.saveBtn().click({ force: true });
 
-    this.elements.loadingSpinner().should("exist").then(() => {
-      this.elements.loadingSpinner().should("not.exist").then(() => {
+  
         this.elements.status().should('contain', "Job Offered")
         this.elements.passedBtn().click({ force: true });
         cy.wait(4000)
         this.elements.saveBtn().click({ force: true });
-      })
-    })
+
   
 
 

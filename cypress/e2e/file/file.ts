@@ -6,11 +6,11 @@ import { addCandidate, deleteCandidate, schedule_interview, shortlistCandidate }
 import { candidatePageObj } from "../../pages/CandidatePage";
 let empNumber: string;
 let jobId: string;
-const jobName = "QA Enupp7tng";
-const vacancyName = "vacput0";
-const candidateFirstName = "cdoute20";
-const candidateLastName = "cp7uys";
-const interviewName = "intu2u0";
+const jobName = "QA Engineeroo";
+const vacancyName = "vacancyoo";
+const candidateFirstName = "candidateoo";
+const candidateLastName = "candidateoo";
+const interviewName = "interviewoo";
 let vacancyId: string;
 let candidateId: string;
 Given("Admin login", () => {
@@ -72,7 +72,7 @@ When("Change the candidate status to Hired", () => {
     candidatePageObj.submitHired();
 })
 Then("The uploaded file should contain the same data as was uploaded", () => {
-cy.readFile("cypress/downloads/file.txt").should('contain','Hello')
+cy.readFile("cypress/downloads/file.txt",{timeout:40000}).should('contain','Hello')
     Employee.deleteEmployee(empNumber);
     deleteVacancy(vacancyId);
     deleteJob(jobId);

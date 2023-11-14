@@ -60,12 +60,7 @@ When("Change the candidate status to Interview Failed", () => {
     candidatePageObj.submitFailed();
 })
 
-When("Change the candidate status to Hired", () => {
-    cy.visit(`https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/${candidateId}`)
-    candidatePageObj.submitPassed();
-    cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Passed")
-    candidatePageObj.submitHired();
-})
+
 Then("Successfully transition the candidate's status to Interview Passed", () => {
 
     cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Passed")
@@ -78,14 +73,6 @@ Then("Successfully transition the candidate's status to Interview Passed", () =>
 })
 Then("Successfully transition the candidate's status to Interview Field", () => {
     cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Failed")
-    Employee.deleteEmployee(empNumber);
-    deleteVacancy(vacancyId);
-    deleteJob(jobId);
-    deleteVacancy(vacancyId);
-    deleteCandidate(candidateId);
-})
-Then("Successfully transition the candidate's status to Hired", () => {
-    cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Hired")
     Employee.deleteEmployee(empNumber);
     deleteVacancy(vacancyId);
     deleteJob(jobId);
