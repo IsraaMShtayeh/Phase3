@@ -6,11 +6,11 @@ import { addCandidate, deleteCandidate, schedule_interview, shortlistCandidate }
 import { candidatePageObj } from "../../pages/CandidatePage";
 let empNumber: string;
 let jobId: string;
-const jobName = "QA Engineuering";
-const vacancyName = "vacancuy20";
+const jobName = "QA Engineueringg";
+const vacancyName = "vacancyy";
 const candidateFirstName = "canudidate20";
-const candidateLastName = "canuons";
-const interviewName = "intervieuw20";
+const candidateLastName = "candons";
+const interviewName = "intervieww";
 let vacancyId: string;
 let candidateId: string;
 Given("Admin login", () => {
@@ -65,17 +65,16 @@ Then("Successfully transition the candidate's status to Interview Passed", () =>
 
     cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Passed")
 
-    Employee.deleteEmployee(empNumber);
-    deleteVacancy(vacancyId);
-    deleteJob(jobId);
-    deleteVacancy(vacancyId);
-    deleteCandidate(candidateId);
 })
 Then("Successfully transition the candidate's status to Interview Field", () => {
     cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Failed")
+   
+  
+})
+afterEach(() => {
     Employee.deleteEmployee(empNumber);
     deleteVacancy(vacancyId);
     deleteJob(jobId);
     deleteVacancy(vacancyId);
     deleteCandidate(candidateId);
-})
+  });
