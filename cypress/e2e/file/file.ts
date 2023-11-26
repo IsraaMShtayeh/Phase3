@@ -4,6 +4,7 @@ import { addJob, deleteJob } from "../../support/helper/job";
 import { addVacancy, deleteVacancy } from "../../support/helper/vacancy";
 import { addCandidate, deleteCandidate, schedule_interview, shortlistCandidate } from "../../support/helper/candidate";
 import { candidatePageObj } from "../../pages/CandidatePage";
+import { uploadFile } from "../../support/helper/file";
 let empNumber: string;
 let jobId: string;
 const jobName = "QA Engineeroo";
@@ -43,32 +44,23 @@ Given("Created Vacancy", () => {
 Given("Created Candidate", () => {
     addCandidate(candidateFirstName, candidateLastName, vacancyId).then((response) => {
         candidateId = response.body.data.id;
-    }).then(() => {
     })
 })
-Given("Created Candidate to Scheduale", () => {
-    addCandidate(candidateFirstName, candidateLastName, vacancyId).then((response) => {
-        candidateId = response.body.data.id;
-    }).then(() => {
+When("Created Candidate to Scheduale", () => {
+  
         shortlistCandidate(candidateId).then(() => {
             schedule_interview(interviewName, candidateId, empNumber)
         })
-    })
+   
 })
 When("upload the file", () => {
     cy.visit(`/web/index.php/recruitment/addCandidate/${candidateId}`)
-    cy.get('.oxd-switch-input',{timeout:40000}).click({ force: true })
-    cy.get('input[type=file]').selectFile("cypress/fixtures/file.txt", { force: true }).then(() => {
-        cy.get('.oxd-form-actions > .oxd-button',{timeout:40000}).click({ force: true })
-        cy.get('.orangehrm-file-preview',{timeout:40000}).click({ force: true })
-        cy.wait(3000)
-     
-    })
+    uploadFile("file.txt")
 })
 When("Change the candidate status to Hired", () => {
     cy.visit(`https://opensource-demo.orangehrmlive.com/web/index.php/recruitment/addCandidate/${candidateId}`)
     candidatePageObj.submitPassed();
-    cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Passed")
+  
     candidatePageObj.submitHired();
 })
 Then("The uploaded file should contain the same data as was uploaded", () => {

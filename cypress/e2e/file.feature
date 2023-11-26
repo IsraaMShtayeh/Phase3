@@ -1,20 +1,19 @@
 Feature: Candidate Interview Result Verification Pass/Fail
+
+Background:
+ Given  Admin login
+        And Created Employee
+        And Created job
+        And Created Vacancy
+        And Created Candidate
+
     Scenario: Application Initiated
-        Given  Admin login
-        Given Created Employee
-        Given Created job
-        Given Created Vacancy
-        Given Created Candidate
         When upload the file
         Then The uploaded file should contain the same data as was uploaded
 
 
     Scenario:  Hired statuses
-        Given  Admin login
-        Given Created Employee
-        Given Created job
-        Given Created Vacancy
-        Given Created Candidate to Scheduale
-        When Change the candidate status to Hired
-        When upload the file
+        When Created Candidate to Scheduale
+        And Change the candidate status to Hired
+        And upload the file
         Then The uploaded file should contain the same data as was uploaded

@@ -19,7 +19,6 @@ Given("Admin login", () => {
     cy.login("Admin", "admin123")
 })
 Given("Created job", () => {
-
     addJob(jobName + Math.ceil(Math.random() * 1000)).then((response) => {
         jobId = response.body.data.id
     })
@@ -62,14 +61,10 @@ When("Change the candidate status to Interview Failed", () => {
 
 
 Then("Successfully transition the candidate's status to Interview Passed", () => {
-
     cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Passed")
-
 })
 Then("Successfully transition the candidate's status to Interview Field", () => {
     cy.get('.orangehrm-recruitment-status > .oxd-text', { timeout: 40000 }).should('contain', "Failed")
-   
-  
 })
 afterEach(() => {
     Employee.deleteEmployee(empNumber);
