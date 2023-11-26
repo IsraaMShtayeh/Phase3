@@ -56,8 +56,8 @@ function logout() {
     return cy.get('.oxd-dropdown-menu',{timeout:40000}).contains('Logout').click({ force: true });
 }
 function login(username: string, password: string) {
-    cy.getByCy('Username').type(username);
-    cy.getByCy('Password').type(password);
+    cy.getByCy('sername').type(username);
+    cy.getByCy('assword').type(password);
     cy.get('button').click({ force: true });
     return cy.get('.oxd-topbar-header-title').contains("Dashboard")
 }

@@ -1,7 +1,9 @@
 import { defineConfig } from "cypress";
 module.exports = defineConfig({
+  downloadsFolder: "cypress/downloads",
 e2e: {
   baseUrl: 'https://opensource-demo.orangehrmlive.com',
+  downloadsFolder: "cypress/downloads",
 async setupNodeEvents(on, config)
 {
 // implement node event listeners here
